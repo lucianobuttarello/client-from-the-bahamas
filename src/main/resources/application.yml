@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: bahamas-client
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        trace: false
+        web-allow-others: true
+  jpa:
+    open-in-view: false
+    show-sql: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+
+  datasource:
+    username: sa
+    url: jdbc:h2:mem:testdb;Mode=Oracle;DB_CLOSE_ON_EXIT=FALSE
+    password:
+    driver:
+      class-name: org.h2.Driver
+
+server:
+  servlet:
+    context-path: /
+  port: ${HTTP_PORT:8080}
+
+logging:
+  level:
+    root: INFO
+
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+
+
+# Url from the external client
+url_client_api: ${EXTERNAL_URL:http://localhost:80800/}
