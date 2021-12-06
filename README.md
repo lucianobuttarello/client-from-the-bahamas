@@ -9,9 +9,16 @@ To execute this project run in the command line:
 
 ## External endpoint 
 
-The external endpoint is deployed with the main application and can be specified with the parameter `EXTERNAL_URL`
+The external endpoint is deployed with the main application and can be overridden with the parameter `EXTERNAL_URL`
 
 ``` mvn clean compile exec:java -DEXTERNAL_URL=https://bahamas.gov/```
+
+## The swagger of this api is accessible at
+
+```http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config#/```
+
+
+![Swagger API](img/swagger.png)
 
 ## Expected error
 
